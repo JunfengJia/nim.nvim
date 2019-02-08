@@ -11,6 +11,7 @@ function! s:OnReply(reply) dict
   elseif self.openIn == 's'
     let openCmd = 'split'
   endif
+  normal! m'
   if openCmd == 'edit' && bufnr(file) == self.buffer
     execute self.buffer . 'bufdo! ' . 'call cursor([' . line . ',' . col . '])'
   elseif bufwinnr(self.buffer) != -1 || openCmd == 'edit'
